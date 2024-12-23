@@ -1,36 +1,51 @@
-#banner{
+#banner {
     background: #b3e0e8;
+    
+}
+.banner_container{
     min-height: 500px;
 }
-
-.banner_txt{
+.banner_txt {
     background-color: rgba(52, 183, 166, .5);
     backdrop-filter: blur(30px);
 }
-.work_plan{
+
+.work_plan {
     padding: 10px;
     margin-top: -130px;
     background: white;
     z-index: 1;
+    position: relative;
 }
 
-.work_plan img{
+.work_plan img {
     width: 80px;
     margin-bottom: 0 !important;
 }
 
-.work_plan p{
+.work_plan p {
     margin-bottom: 0;
 }
 
-i{
+i {
     font-size: 20px;
 }
-.footer_top{
+
+.footer_top {
     background-color: rgb(204, 212, 220);
 }
 
-.vc_card strong{
+.vc_card strong {
     padding-bottom: 7px;
     display: inline-block;
+}
+
+
+@media (max-width: 1000px) {
+    .banner_right {
+        display: none;
+    }
+    .banner_left{
+        width: 100%;
+    }
 }

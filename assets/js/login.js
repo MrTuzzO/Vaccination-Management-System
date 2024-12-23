@@ -93,7 +93,7 @@ document.querySelector('form').addEventListener('submit', async function (e) {
                 localStorage.setItem('userType', userInfo.user_type);
 
                 // alert('Login successful!');
-                window.location.href = 'patient_profile.html';
+                window.location.href = 'index.html';
             } else {
                 alert('Failed to retrieve user profile. Please try again.');
             }

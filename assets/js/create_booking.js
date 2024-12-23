@@ -56,12 +56,18 @@
 document.getElementById("booking-form").addEventListener("submit", async (event) => {
   event.preventDefault();
 
+  // for adding loader
+  const loader = document.getElementById('loader');
+  loader.classList.remove('d-none'); // Show loader
+
+
   const bookingDate = document.getElementById("booking_date").value;
   const patientId = localStorage.getItem("patientId");
   const authToken = localStorage.getItem("authToken");
 
   if (!authToken) {
-    alert("Authentication token not found. Please log in to continue.");
+    alert("Please log in to continue.");
+    window.location.href = 'login.html';
     return;
   }
 
@@ -104,5 +110,7 @@ document.getElementById("booking-form").addEventListener("submit", async (event)
   } catch (error) {
     console.error("Request Error:", error.message);
     document.getElementById("booking-feedback").innerHTML = `<div class="alert alert-danger">Error: ${error.message}</div>`;
+  } finally {
+    loader.classList.add('d-none'); // Hide loader
   }
 });

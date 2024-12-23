@@ -18,7 +18,11 @@
 </head>
 
 <body>
+    <!-- header -->
     <div id="header"></div>
+    <!-- loader -->
+    <div id="loader" class="d-none"></div>
+
     <main class="container py-5">
         <!-- Campaign Details and Reviews Section -->
         <div class="card mb-4 shadow-lg border-0">
@@ -33,7 +37,8 @@
                 </h5>
                 <p class="card-text text-muted vc_card">
                     <strong>Description:</strong> <span id="description">Description</span><br>
-                    <strong class="mt-3"><i class="fas fa-calendar-alt me-2"></i> Start Date:</strong> <span id="start-date">Start
+                    <strong class="mt-3"><i class="fas fa-calendar-alt me-2"></i> Start Date:</strong> <span
+                        id="start-date">Start
                         Date</span><br>
                     <strong><i class="fas fa-calendar-times me-2"></i> End Date:</strong> <span id="end-date">End
                         Date</span><br>
@@ -45,7 +50,7 @@
                     <!-- <strong><i class="fas fa-clock me-2"></i> Created At:</strong> <span id="created-at">Created At</span> -->
                 </p>
                 <form id="booking-form">
-                    <div class="mb-3 w-25">
+                    <div class="mb-3" style="width: 250px;">
                         <label for="booking_date" class="form-label">Booking Date (Between start and end date): </label>
                         <input type="date" class="form-control" id="booking_date" name="booking_date" required>
                     </div>
@@ -71,7 +76,7 @@
                 <div id="review-feedback" class="mt-3"></div>
 
                 <!-- Reviews List -->
-                <div class="mt-4" id="reviews-container">                    
+                <div class="mt-4" id="reviews-container">
                     <!-- <div class="border-bottom pb-2">
                         <h6><strong>John Doe</strong> <small class="text-muted">- 2024-12-25</small></h6>
                         <p class="text-muted">Great experience, the campaign was very well organized. I had no issues
@@ -90,13 +95,26 @@
         // Get the campaign ID from the URL query parameter
         const urlParams = new URLSearchParams(window.location.search);
         const campaignId = urlParams.get('id');
-
+        console.log('Campaign ID:', campaignId); // Log campaign ID for debugging
+    
+        // For adding loader
+        const loader = document.getElementById('loader');
+        loader.classList.remove('d-none'); // Show loader
+    
         // Fetch campaign data from API
         const apiUrl = `https://vaccination-management-system-backend.vercel.app/api/campaign/${campaignId}`;
-
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(campaign => {
+    
+        async function fetchCampaignData() {
+            try {
+                const response = await fetch(apiUrl);
+    
+                // Check for HTTP errors
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+    
+                const campaign = await response.json();
+    
                 // Populate the campaign details on the page
                 document.getElementById('campaign-name').innerText = campaign.campaign_name;
                 document.getElementById('vaccine-type').innerText = campaign.vaccine_type;
@@ -106,10 +124,18 @@
                 document.getElementById('doses').innerText = campaign.vaccine_doses;
                 document.getElementById('interval').innerText = campaign.dose_interval;
                 document.getElementById('available-vaccines').innerText = campaign.available_vaccines;
-
-            })
-            .catch(error => console.error('Error fetching campaign data:', error));
-    </script>
+    
+            } catch (error) {
+                console.error('Error fetching campaign data:', error);
+                alert('Failed to fetch campaign details. Please try again later.');
+            } finally {
+                loader.classList.add('d-none'); // Hide loader
+            }
+        }
+    
+        // Call the function
+        fetchCampaignData();
+    </script>      
     <script src="assets/js/create_booking.js"></script>
     <script src="assets/js/post_review.js"></script>
     <script src="assets/js/review_list.js"></script>
