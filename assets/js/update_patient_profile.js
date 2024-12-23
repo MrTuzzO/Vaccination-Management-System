@@ -79,15 +79,15 @@ document.addEventListener('DOMContentLoaded', function () {
             const data = await response.json();
 
             if (response.ok) {
-                alert('Profile updated successfully!');
                 window.location.href = 'patient_profile.html'; // Redirect after successful update
+                showAlert('Profile updated successfully!', 'success');
             } else {
                 console.error('Error updating profile:', data);
-                alert(`Update failed: ${data.detail || 'Please check your inputs.'}`);
+                showAlert(`Update failed: ${data.detail || 'Please check your inputs.'}`);
             }
         } catch (error) {
             console.error('Unexpected error during profile update:', error);
-            alert('An unexpected error occurred. Please try again later.');
+            showAlert('An unexpected error occurred. Please try again later.');
         } finally {
             loader.classList.add('d-none'); // Hide loader
         }

@@ -9,18 +9,18 @@ document.getElementById("review-form").addEventListener("submit", async (event) 
   const authToken = localStorage.getItem("authToken");
 
   if (!authToken) {
-    alert("Please log in to continue.");
+    showAlert("Please log in to continue.");
     window.location.href = 'login.html';
     return;
   }
 
   if (!reviewText) {
-    alert("Please write a review before submitting.");
+    showAlert("Please write a review before submitting.");
     return;
   }
 
   if (!campaignId) {
-    alert("Campaign ID is required. Please select a campaign.");
+    showAlert("Campaign ID is required. Please select a campaign.");
     return;
   }
 

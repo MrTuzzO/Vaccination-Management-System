@@ -52,11 +52,11 @@ document.getElementById('register-form').addEventListener('submit', async functi
             for (const [key, value] of Object.entries(data)) {
                 errorMessages += `${key}: ${value}\n`;
             }
-            alert(`Registration failed:\n${errorMessages}`);
+            showAlert(`Registration failed:\n${errorMessages}`);
         }
     } catch (error) {
         console.error('Unexpected error:', error);
-        alert('An unexpected error occurred. Please try again.');
+        showAlert('An unexpected error occurred. Please try again.');
     } finally {
         loader.classList.add("d-done")
     }

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
     if (!token) {
-        alert('You must be logged in to view your profile.');
+        showAlert('You must be logged in to view your profile.');
         window.location.href = 'login.html'; // Redirect to login page
         return;
     }
@@ -35,12 +35,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         } else {
             const errorData = await response.json();
-            alert(`Failed to load profile: ${errorData.detail || 'Unknown error occurred.'}`);
+            showAlert(`Failed to load profile: ${errorData.detail || 'Unknown error occurred.'}`);
             window.location.href = 'login.html'; // Redirect to login if unauthorized
         }
     } catch (error) {
         console.error('Error fetching profile:', error);
-        alert('An error occurred while fetching the profile data.');
+        showAlert('An error occurred while fetching the profile data.');
     } finally {
         loader.classList.add('d-none'); // Hide loader
     }

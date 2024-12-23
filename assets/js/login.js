@@ -95,14 +95,14 @@ document.querySelector('form').addEventListener('submit', async function (e) {
                 // alert('Login successful!');
                 window.location.href = 'index.html';
             } else {
-                alert('Failed to retrieve user profile. Please try again.');
+                showAlert('Failed to retrieve user profile. Please try again.');
             }
         } else {
-            alert(`Login failed: ${data.detail || 'Please check your credentials.'}`);
+            showAlert(`Login failed: ${data.detail || 'Please check your credentials.'}`, "warning");
         }
     } catch (error) {
         console.error('Unexpected error:', error);
-        alert('An unexpected error occurred. Please try again later.');
+        showAlert('An unexpected error occurred. Please try again later.');
     } finally {
         loader.classList.add('d-none'); // Hide loader
     }

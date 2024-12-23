@@ -16,7 +16,7 @@ async function logout() {
 
     const authToken = localStorage.getItem('authToken');
     if (!authToken) {
-        alert('You are not logged in.');
+        showAlert('You are not logged in.', 'warning');
         return;
     }
 
@@ -32,17 +32,17 @@ async function logout() {
         if (response.ok) {
             // Remove the token and redirect to the login page
             localStorage.removeItem('authToken');
-            localStorage.clear(); 
+            localStorage.clear();
             // alert('Logout successful!');
             window.location.href = 'login.html';
         } else {
             const errorData = await response.json();
             console.error('Logout failed:', errorData);
-            alert('Logout failed. Please try again.');
+            showAlert('Logout failed. Please try again.', 'warning');
         }
     } catch (error) {
         console.error('An unexpected error occurred during logout:', error);
-        alert('An unexpected error occurred. Please try again.');
+        showAlert('An unexpected error occurred. Please try again.');
     } finally {
         loader.classList.add("d-done");
     }
@@ -51,13 +51,13 @@ async function logout() {
 function setupAuthButtons() {
     const authToken = localStorage.getItem('authToken');
     const authButtons = document.getElementById('auth-buttons');
-    
+
     if (authToken) {
         authButtons.innerHTML = `
             <a class="btn btn-outline-light" href="patient_profile.html">Profile</a>
             <button class="btn btn-outline-light" id="logout-btn">Logout</button>
         `;
-        
+
         document.getElementById('logout-btn').addEventListener('click', logout);
     } else {
         authButtons.innerHTML = `<a href="login.html" class="btn btn-outline-light">Login</a>`;
@@ -69,3 +69,26 @@ document.addEventListener("DOMContentLoaded", () => {
     includeHTML("footer", "components/footer.html");
     includeHTML("loader", "components/loader.html");
 });
+
+
+// for alert
+function showAlert(message, type = 'danger', duration = 10000) {
+    // Create the alert div
+    const alertDiv = document.createElement('div');
+    alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+    alertDiv.role = 'alert';
+    alertDiv.innerHTML = `
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        `;
+
+    // Append the alert to the alert container
+    const alertContainer = document.getElementById('alert-container');
+    alertContainer.appendChild(alertDiv);
+
+    // Automatically remove the alert after the specified duration
+    setTimeout(() => {
+        alertDiv.classList.remove('show'); // Start fade-out animation
+        alertDiv.addEventListener('transitionend', () => alertDiv.remove()); // Remove the alert after fade-out
+    }, duration);
+}

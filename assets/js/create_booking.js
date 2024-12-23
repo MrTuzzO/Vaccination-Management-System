@@ -66,7 +66,7 @@ document.getElementById("booking-form").addEventListener("submit", async (event)
   const authToken = localStorage.getItem("authToken");
 
   if (!authToken) {
-    alert("Please log in to continue.");
+    showAlert("Please log in to continue.");
     window.location.href = 'login.html';
     return;
   }
