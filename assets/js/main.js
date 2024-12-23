@@ -53,11 +53,22 @@ async function logout() {
 function setupAuthButtons() {
     const authToken = localStorage.getItem('authToken');
     const authButtons = document.getElementById('auth-buttons');
+    const userName = localStorage.getItem('username').toLocaleUpperCase();
+
 
     if (authToken) {
+        // authButtons.innerHTML = `
+        //     <a class="btn btn-outline-light" href="patient_profile.html">Profile</a>
+        //     <button class="btn btn-outline-light" id="logout-btn">Logout</button>
+        // `;
         authButtons.innerHTML = `
-            <a class="btn btn-outline-light" href="patient_profile.html">Profile</a>
-            <button class="btn btn-outline-light" id="logout-btn">Logout</button>
+            <a class="btn text-white p-0" href="patient_profile.html" title="Profile">
+                <i class="fas fa-user-circle"></i> 
+                <span>${userName || 'User'}</span> <!-- Display username or default to 'User' -->
+            </a>
+            <button class="btn" id="logout-btn" title="Logout">
+                <i class="fas fa-sign-out-alt text-white fs-5"></i>
+            </button>
         `;
 
         document.getElementById('logout-btn').addEventListener('click', logout);
