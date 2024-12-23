@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <script src="assets/js/main.js" defer></script>
+</head>
+
+<body>
+    <div id="header"></div>
+    <main class="py-5" style="background-color: #f9f9f9;">
+        <div class="container">
+            <!-- About Us Heading -->
+            <div class="text-center mb-5">
+                <h1 class="fw-bold">About Us</h1>
+                <p class="text-muted">Transforming healthcare through technology and vaccination campaigns to ensure a healthier tomorrow.</p>
+            </div>
+    
+            <!-- Mission and Features -->
+            <div class="row gx-5 mb-5">
+                <!-- Left Column -->
+                <div class="col-md-6">
+                    <h3 class="fw-semibold">Our Mission</h3>
+                    <p class="text-muted">
+                        Our mission is to provide a seamless, secure, and user-friendly platform for vaccination management. We aim to empower communities by offering easy booking, campaign reviews, and reliable medical information.
+                    </p>
+                    <div class="accordion mt-4" id="aboutAccordion">
+                        <!-- Q&A -->
+                        <div class="accordion-item  rounded">
+                            <h2 class="accordion-header" id="headingQA">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQA" aria-expanded="true" aria-controls="collapseQA">
+                                    Q&A
+                                </button>
+                            </h2>
+                            <div id="collapseQA" class="accordion-collapse collapse show" aria-labelledby="headingQA" data-bs-parent="#aboutAccordion">
+                                <div class="accordion-body">
+                                    <strong>What is this system?</strong>  
+                                    <p class="text-muted">This is a vaccination management platform designed to simplify dose booking and ensure organized vaccine campaigns.</p>
+    
+                                    <strong>Who can use this system?</strong>  
+                                    <p class="text-muted">Patients and doctors can register and use the system to book doses, manage profiles, and oversee campaigns.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- About the System -->
+                        <div class="accordion-item  rounded">
+                            <h2 class="accordion-header" id="headingAboutSystem">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAboutSystem" aria-expanded="false" aria-controls="collapseAboutSystem">
+                                    About this System
+                                </button>
+                            </h2>
+                            <div id="collapseAboutSystem" class="accordion-collapse collapse" aria-labelledby="headingAboutSystem" data-bs-parent="#aboutAccordion">
+                                <div class="accordion-body">
+                                    This system facilitates vaccination campaigns, allowing patients to book doses, view schedules, and leave reviews. Doctors can manage campaigns and schedules.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Procedure -->
+                        <div class="accordion-item  rounded">
+                            <h2 class="accordion-header" id="headingProcedure">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProcedure" aria-expanded="false" aria-controls="collapseProcedure">
+                                    Procedure
+                                </button>
+                            </h2>
+                            <div id="collapseProcedure" class="accordion-collapse collapse" aria-labelledby="headingProcedure" data-bs-parent="#aboutAccordion">
+                                <div class="accordion-body">
+                                    Patients can register using their NID, book a dose by selecting an available date, and receive automated scheduling for the next dose. Doctors add and manage vaccine campaigns.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Data Privacy -->
+                        <div class="accordion-item  rounded">
+                            <h2 class="accordion-header" id="headingDataPrivacy">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDataPrivacy" aria-expanded="false" aria-controls="collapseDataPrivacy">
+                                    Data Privacy
+                                </button>
+                            </h2>
+                            <div id="collapseDataPrivacy" class="accordion-collapse collapse" aria-labelledby="headingDataPrivacy" data-bs-parent="#aboutAccordion">
+                                <div class="accordion-body">
+                                    We prioritize your privacy. All personal information, including NID, is stored securely and used only for vaccination purposes.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- How to Use -->
+                        <div class="accordion-item  rounded">
+                            <h2 class="accordion-header" id="headingHowToUse">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHowToUse" aria-expanded="false" aria-controls="collapseHowToUse">
+                                    How to Use
+                                </button>
+                            </h2>
+                            <div id="collapseHowToUse" class="accordion-collapse collapse" aria-labelledby="headingHowToUse" data-bs-parent="#aboutAccordion">
+                                <div class="accordion-body">
+                                    - Register as a patient or doctor.<br>
+                                    - Log in to access the dashboard.<br>
+                                    - Patients can view available campaigns and book doses.<br>
+                                    - Doctors can add, edit, or delete campaigns and schedules.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Right Column -->
+                <div class="col-md-6 text-center">
+                    <img src="assets/img/login_reg.png" alt="Healthcare" class="">
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    
+    <div id="footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
