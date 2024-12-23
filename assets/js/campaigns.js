@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
                           <h5 class="card-title text-secondary fw-semibold">${campaign.vaccine_type}</h5>
                           <p class="card-text text-muted">
                               <strong>Description:</strong> ${campaign.description}<br>
-                              <strong><i class="fas fa-calendar-day me-2"></i>Start Date:</strong> ${campaign.start_date}<br>
+                              <strong class="mt-3"><i class="fas fa-calendar-day me-2"></i>Start Date:</strong> ${campaign.start_date}<br>
                               <strong><i class="fas fa-calendar-times me-2"></i>End Date:</strong> ${campaign.end_date}<br>
                               <strong><i class="fas fa-pills me-2"></i>Doses:</strong> ${campaign.vaccine_doses} (Interval: ${campaign.dose_interval} days)<br>
                               <strong><i class="fas fa-capsules me-2"></i>Available Vaccines:</strong> ${campaign.available_vaccines}
