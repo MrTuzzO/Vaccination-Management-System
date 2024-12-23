@@ -102,7 +102,7 @@ document.getElementById("booking-form").addEventListener("submit", async (event)
         let errorMessages = responseBody.non_field_errors.map((error) => {
           return `<p>${error}</p>`;
         }).join('');
-        feedback.innerHTML = `<div class="alert alert-danger">${errorMessages}</div>`;
+        feedback.innerHTML = `<div class="alert alert-warning">${errorMessages}</div>`;
       } else {
         feedback.innerHTML = `<div class="alert alert-danger">Error ${responseStatus}: ${responseBody.detail || "Failed to create booking."}</div>`;
       }

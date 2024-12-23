@@ -38,10 +38,12 @@ async function logout() {
         } else {
             const errorData = await response.json();
             console.error('Logout failed:', errorData);
+            loader.classList.add("d-done");
             showAlert('Logout failed. Please try again.', 'warning');
         }
     } catch (error) {
         console.error('An unexpected error occurred during logout:', error);
+        loader.classList.add("d-done");
         showAlert('An unexpected error occurred. Please try again.');
     } finally {
         loader.classList.add("d-done");
