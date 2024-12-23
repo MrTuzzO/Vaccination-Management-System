@@ -22,23 +22,27 @@
                 <!-- Username -->
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
-                    <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required>
+                    <input type="text" id="username" name="username" class="form-control"
+                        placeholder="Enter your username" required>
                 </div>
                 <!-- First Name and Last Name -->
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label for="first_name" class="form-label">First Name</label>
-                        <input type="text" id="first_name" name="first_name" class="form-control" placeholder="Enter your first name" required>
+                        <input type="text" id="first_name" name="first_name" class="form-control"
+                            placeholder="Enter your first name" required>
                     </div>
                     <div class="col-md-6">
                         <label for="last_name" class="form-label">Last Name</label>
-                        <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Enter your last name" required>
+                        <input type="text" id="last_name" name="last_name" class="form-control"
+                            placeholder="Enter your last name" required>
                     </div>
                 </div>
                 <!-- Email -->
                 <div class="mb-3">
                     <label for="email" class="form-label">Email Address</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email"
+                        required>
                 </div>
                 <!-- NID -->
                 <div class="mb-3">
@@ -48,22 +52,37 @@
                 <!-- Age -->
                 <div class="mb-3">
                     <label for="age" class="form-label">Age</label>
-                    <input type="number" id="age" name="age" class="form-control" placeholder="Enter your age" required min="0">
+                    <input type="number" id="age" name="age" class="form-control" placeholder="Enter your age" required
+                        min="0">
                 </div>
                 <!-- Medical Info -->
                 <div class="mb-3">
                     <label for="medical_info" class="form-label">Medical Information</label>
-                    <textarea id="medical_info" name="medical_info" class="form-control" placeholder="Enter any medical conditions" rows="3"></textarea>
+                    <textarea id="medical_info" name="medical_info" class="form-control"
+                        placeholder="Enter any medical conditions" rows="3"></textarea>
                 </div>
                 <!-- Password -->
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" id="password" name="password1" class="form-control" placeholder="Create a password" required>
+                    <input type="password" id="password" name="password1" class="form-control"
+                        placeholder="Create a password" required>
+                    <div class="form-text text-muted mt-1">
+                        <small>
+                            Your password must:
+                            <ul class="text-muted pl-3">
+                                <li>Must be at least 8 characters long</li>
+                                <li>Include a mix of letters and numbers</li>
+                                <li>Not be entirely numeric</li>
+                                <li>Contain at least one special character (e.g., @, #, $)</li>
+                            </ul>
+                        </small>
+                    </div>
                 </div>
                 <!-- Confirm Password -->
                 <div class="mb-3">
                     <label for="confirm_password" class="form-label">Confirm Password</label>
-                    <input type="password" id="confirm_password" name="password2" class="form-control" placeholder="Confirm your password" required>
+                    <input type="password" id="confirm_password" name="password2" class="form-control"
+                        placeholder="Confirm your password" required>
                 </div>
                 <!-- Submit Button -->
                 <button type="submit" class="btn btn-primary w-100">Sign Up</button>
@@ -73,8 +92,8 @@
             </div>
         </div>
     </main>
-    
-    
+
+
     <script src="assets/js/register.js"></script>
     <div id="footer"></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
