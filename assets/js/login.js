@@ -4,7 +4,7 @@
 
 // document.querySelector('form').addEventListener('submit', async function (e) {
 //     e.preventDefault();
-    
+
 
 //     const usernameOrEmail = document.getElementById('identifier').value;
 //     const password = document.getElementById('password').value;
@@ -50,6 +50,10 @@ if (localStorage.getItem('authToken')) {
 document.querySelector('form').addEventListener('submit', async function (e) {
     e.preventDefault();
 
+    // for adding loader
+    const loader = document.getElementById('loader');
+    loader.classList.remove('d-none'); // Show loader
+
     const usernameOrEmail = document.getElementById('identifier').value;
     const password = document.getElementById('password').value;
 
@@ -69,7 +73,7 @@ document.querySelector('form').addEventListener('submit', async function (e) {
 
         if (response.ok) {
             localStorage.setItem('authToken', data.key);
-            
+
             // Fetch user profile data after successful login
             const profileResponse = await fetch('https://vaccination-management-system-backend.vercel.app/api/auth/profile/', {
                 method: 'GET',
@@ -86,10 +90,9 @@ document.querySelector('form').addEventListener('submit', async function (e) {
                 localStorage.setItem('userId', userInfo.id);
                 localStorage.setItem('patientId', profileInfo.id);
                 localStorage.setItem('username', userInfo.username);
-                localStorage.setItem('email', userInfo.email);
                 localStorage.setItem('userType', userInfo.user_type);
 
-                alert('Login successful!');
+                // alert('Login successful!');
                 window.location.href = 'patient_profile.html';
             } else {
                 alert('Failed to retrieve user profile. Please try again.');
@@ -100,5 +103,7 @@ document.querySelector('form').addEventListener('submit', async function (e) {
     } catch (error) {
         console.error('Unexpected error:', error);
         alert('An unexpected error occurred. Please try again later.');
+    } finally {
+        loader.classList.add('d-none'); // Hide loader
     }
 });

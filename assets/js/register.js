@@ -6,6 +6,10 @@ if (localStorage.getItem('authToken')) {
 document.getElementById('register-form').addEventListener('submit', async function (e) {
     e.preventDefault();
 
+    // for adding loader
+    const loader = document.getElementById('loader');
+    loader.classList.remove('d-none'); // Show loader
+
     const username = document.getElementById('username').value;
     const firstName = document.getElementById('first_name').value;
     const lastName = document.getElementById('last_name').value;
@@ -41,7 +45,7 @@ document.getElementById('register-form').addEventListener('submit', async functi
         const data = await response.json();
 
         if (response.ok) {
-            alert('Registration successful!');
+            // alert('Registration successful!');
             window.location.href = 'login.html';
         } else {
             let errorMessages = '';
@@ -53,5 +57,7 @@ document.getElementById('register-form').addEventListener('submit', async functi
     } catch (error) {
         console.error('Unexpected error:', error);
         alert('An unexpected error occurred. Please try again.');
+    } finally {
+        loader.classList.add("d-done")
     }
 });

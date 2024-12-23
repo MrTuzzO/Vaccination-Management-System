@@ -10,6 +10,10 @@ function includeHTML(id, file) {
 
 // Separate logout function
 async function logout() {
+    // for adding loader
+    const loader = document.getElementById('loader');
+    loader.classList.remove('d-none'); // Show loader
+
     const authToken = localStorage.getItem('authToken');
     if (!authToken) {
         alert('You are not logged in.');
@@ -29,7 +33,7 @@ async function logout() {
             // Remove the token and redirect to the login page
             localStorage.removeItem('authToken');
             localStorage.clear(); 
-            alert('Logout successful!');
+            // alert('Logout successful!');
             window.location.href = 'login.html';
         } else {
             const errorData = await response.json();
@@ -39,6 +43,8 @@ async function logout() {
     } catch (error) {
         console.error('An unexpected error occurred during logout:', error);
         alert('An unexpected error occurred. Please try again.');
+    } finally {
+        loader.classList.add("d-done");
     }
 }
 
@@ -61,4 +67,5 @@ function setupAuthButtons() {
 document.addEventListener("DOMContentLoaded", () => {
     includeHTML("header", "components/header.html");
     includeHTML("footer", "components/footer.html");
+    includeHTML("loader", "components/loader.html");
 });

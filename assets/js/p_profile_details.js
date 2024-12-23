@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const token = localStorage.getItem('authToken'); // Fetch token from localStorage
+    // for adding loader
+    const loader = document.getElementById('loader');
+    loader.classList.remove('d-none'); // Show loader
+
 
     if (!token) {
         alert('You must be logged in to view your profile.');
@@ -37,5 +41,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
         console.error('Error fetching profile:', error);
         alert('An error occurred while fetching the profile data.');
+    } finally {
+        loader.classList.add('d-none'); // Hide loader
     }
 });

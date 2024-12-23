@@ -2,6 +2,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('update-profile-form');
     const authToken = localStorage.getItem('authToken');
 
+    // for adding loader
+    const loader = document.getElementById('loader');
+    loader.classList.remove('d-none'); // Show loader
+
+
     if (!authToken) {
         alert('You are not logged in. Please log in to update your profile.');
         window.location.href = 'login.html';
@@ -34,6 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
         } catch (error) {
             console.error('Error fetching profile data:', error);
             alert('An error occurred while fetching profile data. Please try again later.');
+        } finally {
+            loader.classList.add('d-none'); // Hide loader
         }
     }
     fetchProfileData();
@@ -41,6 +48,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Handle form submission to update profile
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
+
+        // for adding loader
+        const loader = document.getElementById('loader');
+        loader.classList.remove('d-none'); // Show loader
+
 
         const firstName = document.getElementById('first_name').value;
         const lastName = document.getElementById('last_name').value;
@@ -76,6 +88,8 @@ document.addEventListener('DOMContentLoaded', function () {
         } catch (error) {
             console.error('Unexpected error during profile update:', error);
             alert('An unexpected error occurred. Please try again later.');
+        } finally {
+            loader.classList.add('d-none'); // Hide loader
         }
     });
 });
