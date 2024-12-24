@@ -62,7 +62,7 @@ document.getElementById("booking-form").addEventListener("submit", async (event)
 
 
   const bookingDate = document.getElementById("booking_date").value;
-  const patientId = localStorage.getItem("patientId");
+  const patientId = localStorage.getItem("profileId");
   const authToken = localStorage.getItem("authToken");
 
   if (!authToken) {
