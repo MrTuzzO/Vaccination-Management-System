@@ -25,6 +25,7 @@ async function fetchAndSaveProfile() {
             localStorage.setItem('userId', user.id);
             localStorage.setItem('userType', user.user_type);
             localStorage.setItem('profileId', profile.id);
+            localStorage.setItem('username', user.username);
         } else {
             const errorData = await profileResponse.json();
             showAlert(errorData?.detail || 'Failed to retrieve user profile. Please try again.', 'warning');
