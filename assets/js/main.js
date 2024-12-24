@@ -10,10 +10,6 @@ function includeHTML(id, file) {
 
 // Separate logout function
 async function logout() {
-    // for adding loader
-    const loader = document.getElementById('loader');
-    loader.classList.remove('d-none'); // Show loader
-
     const authToken = localStorage.getItem('authToken');
     if (!authToken) {
         showAlert('You are not logged in.', 'warning');
@@ -21,6 +17,10 @@ async function logout() {
     }
 
     try {
+        // for adding loader
+        const loader = document.getElementById('loader');
+        loader.classList.remove('d-none'); // Show loader
+
         const response = await fetch('https://vaccination-management-system-backend.vercel.app/api/auth/logout/', {
             method: 'POST',
             headers: {
@@ -38,23 +38,20 @@ async function logout() {
         } else {
             const errorData = await response.json();
             console.error('Logout failed:', errorData);
-            loader.classList.add("d-done");
             showAlert('Logout failed. Please try again.', 'warning');
         }
     } catch (error) {
         console.error('An unexpected error occurred during logout:', error);
-        loader.classList.add("d-done");
         showAlert('An unexpected error occurred. Please try again.');
     } finally {
-        loader.classList.add("d-done");
+        loader.classList.add("d-none");
     }
 }
 
 function setupAuthButtons() {
     const authToken = localStorage.getItem('authToken');
     const authButtons = document.getElementById('auth-buttons');
-    const userName = localStorage.getItem('username').toLocaleUpperCase();
-
+    const userName = localStorage.getItem('username');
 
     if (authToken) {
         // authButtons.innerHTML = `
@@ -70,7 +67,6 @@ function setupAuthButtons() {
                 <i class="fas fa-sign-out-alt text-white fs-5"></i>
             </button>
         `;
-
         document.getElementById('logout-btn').addEventListener('click', logout);
     } else {
         authButtons.innerHTML = `<a href="login.html" class="btn btn-outline-light">Login</a>`;

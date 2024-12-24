@@ -58,6 +58,6 @@ document.getElementById('register-form').addEventListener('submit', async functi
         console.error('Unexpected error:', error);
         showAlert('An unexpected error occurred. Please try again.');
     } finally {
-        loader.classList.add("d-done")
+        loader.classList.add('d-none');
     }
 });
