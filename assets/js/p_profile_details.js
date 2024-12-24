@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         } else {
             const errorData = await response.json();
             showAlert(`Failed to load profile: ${errorData.detail || 'Unknown error occurred.'}`);
+            localStorage.clear();
             window.location.href = 'login.html'; // Redirect to login if unauthorized
         }
     } catch (error) {
