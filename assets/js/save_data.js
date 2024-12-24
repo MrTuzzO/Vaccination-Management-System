@@ -3,10 +3,9 @@ async function fetchAndSaveProfile() {
         if (localStorage.getItem('userId') && localStorage.getItem('profileId')) {
             return;
         }
-
         const token = localStorage.getItem("authToken");
+
         if (!token) {
-            showAlert('Please log in again.');
             return;
         }
 

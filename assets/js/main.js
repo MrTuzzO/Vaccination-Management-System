@@ -36,9 +36,16 @@ async function logout() {
             // alert('Logout successful!');
             window.location.href = 'login.html';
         } else {
-            const errorData = await response.json();
-            console.error('Logout failed:', errorData);
-            showAlert('Logout failed. Please try again.', 'warning');
+            // const errorData = await response.json();
+            // console.error('Logout failed:', errorData);
+            // showAlert('Logout failed. Please try again.', 'warning');
+
+
+            // Remove the token and redirect to the login page
+            localStorage.removeItem('authToken');
+            localStorage.clear();
+            // alert('Logout successful!');
+            window.location.href = 'login.html';
         }
     } catch (error) {
         console.error('An unexpected error occurred during logout:', error);
