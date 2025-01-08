@@ -21,9 +21,9 @@ async function fetchAndSaveProfile() {
             const user = profileData.user.user;
             const profile = profileData.user;
 
-            localStorage.setItem('userId', user.id);
+            // localStorage.setItem('userId', user.id);
             localStorage.setItem('userType', user.user_type);
-            localStorage.setItem('profileId', profile.id);
+            // localStorage.setItem('profileId', profile.id);
             localStorage.setItem('username', user.username);
         } else {
             const errorData = await profileResponse.json();

@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     bookingDate.getMonth() === currentDate.getMonth() &&
                     bookingDate.getDate() === currentDate.getDate()
                 ) {
-                    status = "Pending";
+                    status = "Pending today";
                 } else {
                     status = "Upcoming";
                     const diffTime = Math.ceil((bookingDate - currentDate) / (1000 * 60 * 60 * 24));
