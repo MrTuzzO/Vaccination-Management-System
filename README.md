@@ -1,4 +1,4 @@
-# Vaccination Management System
+# Vaxcare
 
 ## Overview
 The **Vaccination Management System** is a web-based platform designed to streamline the process of managing vaccination campaigns. It allows users to view vaccination campaigns, register, and manage their profiles. The platform features user authentication, campaign details viewing, and profile management functionalities.
@@ -14,3 +14,7 @@ This repository contains the frontend of the application. The backend, built usi
 ## Technologies Used
 - **Frontend:** HTML, CSS, JavaScript
 - **Backend:** Django REST Framework (DRF) - [Backend Repository](https://github.com/MrTuzzO/Vaccination-Management-System-Backend)
+
+## Live Link
+- [www.vaxcare.netlify.app](https://vaxcare.netlify.app)
+- [www.dr-vaxcare.netlify.app](https://dr-vaxcare.netlify.app/dr_login.html)
